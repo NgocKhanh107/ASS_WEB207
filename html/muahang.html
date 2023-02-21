@@ -1,0 +1,94 @@
+
+	<!--Giỏ hàng-->
+    <div class=" container mt-4" >
+        <h4 class="text-center">Giỏ hàng</h4>
+        <table class="table  text-danger m-0">
+            <tr class="text-center">
+                <th scope="col">
+                    <input type="checkbox" ng-model="all">
+                </th>
+                <th scope="col">Sản phẩm </th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Đơn giá</th>
+                <th scope="col">Thành tiền</th>
+                <th scope="col">Thao tác</th>
+                
+            </tr>
+            <tr ng-repeat="sp in sanpham" >
+				<td class="text-center">
+					<input type="checkbox" ng-model="sp.buy" ng-checked="all">
+				</td>
+                <td >
+                    <div class="row">
+                    <div class="col-6">
+                        <img src="images/{{sp.image}}" alt="" width="60px" height="60px">
+                    </div>
+                    <div class="col-6">
+                        <h4>{{sp.name}}</h4>
+                    </div>
+                </div>
+                </td>
+                <td>         
+					<div>          
+							<button class="btn btn-success" id="minus">−</button>
+							<input type="number" value="0"  ng-model="sp.sl" {{sp.sl}} ng-disabled="!sp.buy"id="input"   style="width: 50px"/>
+							<button class="btn-success" id="plus">+</button>  
+					</div>             
+                </td>
+                <td class="text-center">{{sp.gia|number}}</td>
+                <td class="text-center">{{sp.sl*sp.gia| number}}</td>
+                <td class="text-center">
+                    <button type="button" class=" btn btn-danger" ng-click = "delete($event,$index)">Xoá</button>
+                </td>
+                
+            </tr>
+        </table>
+
+		<h3 class="text-danger mt-5">Tổng tiền: {{tongTien()}}</h3>
+        
+        <a class="btn btn-success mt-4 mb-4" href="#hoadon" role="button" ng-click = " addProduct()">Mua hàng</a>
+    </div>
+    <!--End giỏ hàng-->
+	
+	<!-- <script>
+		var app = angular.module("myApp",[]);
+		app.controller("myCtrl", function($scope, $http){
+		$scope.sanpham = [];
+    	$http.get("https://63b45f9c9f50390584aefad1.mockapi.io/products").then(
+        function (r) {
+            $scope.sanpham = r.data;
+        },
+        function (d) {
+            alert('Lỗi: ' + d.statusText);
+        }
+    );
+
+    $scope.tongTien = function () {
+        var amount = 0;
+        for (var i = 0; i < $scope.sanpham.length; i++) {
+            if ($scope.sanpham[i].buy) {
+                amount += $scope.sanpham[i].price * $scope.sanpham[i].sl;
+            }
+        }
+        return numberWithCommas(amount);
+    }
+	function numberWithCommas(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+		})
+		const minusButton = document.getElementById('minus');
+	const plusButton = document.getElementById('plus');
+	const inputField = document.getElementById('input');
+
+	minusButton.addEventListener('click', event => {
+	event.preventDefault();
+	const currentValue = Number(inputField.value) || 0;
+	inputField.value = currentValue - 1;
+	});
+
+	plusButton.addEventListener('click', event => {
+	event.preventDefault();
+	const currentValue = Number(inputField.value) || 0;
+	inputField.value = currentValue + 1;
+	});
+	</script> -->

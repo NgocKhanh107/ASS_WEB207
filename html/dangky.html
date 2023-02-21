@@ -1,0 +1,68 @@
+
+<div class="mt-3" >
+    <div class="row">
+        <div class="col-md-5 card mt-1 container shadow-lg p-3 mb-5 bg-body rounded" >
+            <div class="card-body">             
+                <form class="" name="frmRegister" >
+                    <h1 class="text-success text-center pt-5">Đăng ký</h1>
+                    <label class="text-success">Tên đăng ký(Tài khoản)</label>
+                    <div class="from-group mt-0">   
+                        <input type="text" class="form-control border-success" name="txtUser" ng-model="studentR.username" required minlength="5">
+                        <small ng-show="frmRegister.txtUser.$error.required" class="form-text text-danger">Vui lòng
+                            nhập tên tài khoản</small>
+                        <small ng-show="frmRegister.txtUser.$error.minlength" class="form-text text-danger">Tên tài
+                            khoản phải hơn 5 kí tự</small>
+                    </div>
+                    <label class="text-success">Mật khẩu</label> 
+                    <div class="from-group mt-0">
+                        <input type="password" class="form-control border-success" name="txtPass" ng-model="studentR.password" required minlength="6">
+                        <span class="text-danger mt-3 ms-1" ng-show="frmRegister.txtPass.$invalid">Vui lòng nhập mật khẩu</span>
+                        <small ng-show="frmRegister.txtPass.$error.minlength" id="password" class="form-text text-danger">
+                            Mật khẩu phải hơn 6 kí tự
+                        </small>
+                    </div> 
+                    
+                    <label class="text-success">Họ tên</label>
+                    <div class="from-group  mt-0">
+                        <input type="text" name="txtTen" ng-model="studentR.fullname" class="form-control border-success" required minlength="5">
+                        <span class="text-danger" ng-show="frmRegister.txtTen.$invalid">Vui lòng nhập họ tên</span>
+                        <small ng-show="frmRegister.txtTen.$error.minlength" id="fullname"
+                class="form-text text-danger">Không được dưới 5 kí tự</small>
+                    </div>   
+                    <label class="text-success">Email</label>
+                    <div class="from-group mt-0">
+                        <input type="email" class="form-control border-success" name="txtemail" ng-model="studentR.email">
+                        <span class="text-danger" ng-show="frmRegister.txtemail.$invalid">Email không đúng định dạng</span>
+                    </div>   
+                    <label class="text-success">Giới tính</label>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" ng-model="studentR.gender" id="gender" value="true" checked >
+                        <label class="form-check-label" for="inlineRadio1">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions"  ng-model="studentR.gender" id="gender2" value="false">
+                        <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                    </div>
+                    
+                    <br>
+                    <label class="mt-2 text-success">Ngày sinh</label>
+                    <div class="from-group mt-2">
+                        <input type="text" class="form-control border-success" style="width:200px" ng-model="studentR.birthday" name="txtDate" required>
+                        <span class="text-danger" ng-show="frmRegister.txtDate.$invalid"> Vui lòng chọn ngày sinh</span>
+                    </div>
+                    <label> Vai trò</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions"  ng-model="studentR.admin" id="admin" value="true">
+                        <label class="form-check-label" for="inlineRadio2">User</label>
+                    </div>
+                   
+                    
+                    <div class="text-center from-group mt-2">
+                        <button ng-click="register($event)" ng-disabled="frmRegister.$invalid" class="btn btn-success btn-rounded">Đăng ký</button>
+                    </div> 
+                </form>
+            </div>
+        </div> 
+    </div>
+        
+</div>

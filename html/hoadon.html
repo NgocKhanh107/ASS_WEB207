@@ -1,0 +1,32 @@
+<div class=" container mt-4" >
+    <h4 class="text-center">Hoá đơn</h4>
+    <table class="table  text-danger m-0">
+        <tr class="text-center">
+            
+            <th scope="col">Sản phẩm </th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Thành tiền</th>         
+        </tr>
+        <tr ng-repeat="sp in sanpham" >         
+            <td >
+                <div class="row">
+                <div class="col-6">
+                    <img src="images/{{sp.image}}" alt="" width="60px" height="60px">
+                </div>
+                <div class="col-6">
+                    <h4>{{sp.name}}</h4>
+                </div>
+            </div>
+            </td>
+            <td class="text-center">{{sp.sl}}</td>
+            <td class="text-center">{{sp.sl*sp.gia| number}}</td>
+            
+            
+        </tr>
+        <tr>
+            <td><h5 class="text-center">--------------------------</h5></td>
+        </tr>
+    </table>
+       
+    
+</div>

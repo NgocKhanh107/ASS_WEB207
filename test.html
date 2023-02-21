@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-app = "myApp">
+    <div class="container mt-3" ng-controller =" myCtrl">
+        <h2>Sản phẩm theo loại sản phẩm</h2>
+        <button ng-click="filterByCategory('Áo')">Áo</button>
+        <button ng-click="filterByCategory('Quần')">Quần</button>
+        <button ng-click="filterByCategory('Giày')">Giày</button>
+        <button ng-click="filterByCategory('Phụ kiện')">Phụ kiện</button>
+        <div ng-repeat="product in filteredProducts">
+          <h3>{{product.name}}</h3>
+          <p>Loại sản phẩm: {{product.category}}</p>
+        </div>
+    </div>
+    <script>
+        // AngularJS controller
+var app = angular.module("myApp", []);
+
+app.controller("myCtrl", function($scope) {
+  $scope.products = [
+    {name: "Áo thun", category: "Áo"},
+    {name: "Quần jeans", category: "Quần"},
+    {name: "Áo khoác", category: "Áo"},
+    {name: "Giày thể thao", category: "Giày"},
+    {name: "Ví da", category: "Phụ kiện"}
+  ];
+  
+  $scope.filteredProducts = $scope.products;
+  
+  $scope.filterByCategory = function(category) {
+    $scope.filteredProducts = $scope.products.filter(function(product) {
+      return product.category === category;
+    });
+  };
+});
+
+    </script>
+</body>
+</html>

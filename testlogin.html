@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> -->
+
+    <!-- <link rel="stylesheet" href="fonts/icomoon/style.css"> -->
+
+    <!-- <link rel="stylesheet" href="css/owl.carousel.min.css"> -->
+    <!-- <script src="js/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="test.css">
+    <!-- Style -->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <title>Login #8</title>
+  </head>
+  <body ng-app=" myApp">
+
+ 
+    <div class="container mt-5" ng-controller = "myCtrl">
+      <div class="row">
+        <div class="col-md-6 order-md-2">
+          <h3>Đăng ký thành viên mới</h3>
+          <h5>Đăng ký để mua sắm dễ dàng hơn và tận hưởng thêm nhiều đặc biệt</h5>
+          <button class="btn btn-success mt-3 offset-5"  >Đăng ký</button>
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3>Đăng nhập thành viên</h3>
+              
+            </div>
+            <form class="tra frm" name="frmLogin">
+              <div class="text-center mt-2">
+                  <img src="/images/user.png" alt="">
+              </div>
+              <div class="form-group mt-2">       
+                  <input type="text" class="form-control border-warning form-rounded tex-warning my-2 mt-4" ng-model="username" name="txtUser" placeholder="Tài khoản" required>
+                  <span class="text-danger ms-2" ng-show="frmLogin.txtUser.$invalid">Vui lòng nhập tài khoản</span>
+              </div>
+              <div class="form-group mt-2">
+                  <input type="password" class="form-control border-warning form-rounded my-2 mt-4" ng-model="password" name="txtPass" placeholder="Mật khẩu" required>
+                  <span class="text-danger ms-2" ng-show="frmLogin.txtPass.$invalid">Vui lòng nhập mật khẩu</span>
+              </div>
+              <div class="text-center mt-2">
+                  <button class="btn btn-warning btn-rounded " ng-disabled="frmLogin.$invalid" ng-click="login()">Đăng nhập</button>
+              </div>
+          </form>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  
+
+  
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script>
+      var app = angular.module("myApp",[]);
+      app.controller('loginCtrl', function($scope,$rootScope,$http) {
+    $scope.login = function(event) {
+        var kt = true;
+        // $scope.List_student=[];
+
+        $http.get("https://621605707428a1d2a3581c4b.mockapi.io/apt/students/students")
+        .then(function (response) {
+            $scope.students1=response.data;
+            console.log('---đọc thành công-----')
+            
+        //     $scope.students1.forEach(st => {
+        //         console.log('vào để so sánh đăng nhập');
+        //         console.log(st);
+        //         if(st.username==$scope.username&&st.password==$scope.password){
+        //             alert('đăng nhập thành công!');
+        //             kt=false;
+        //             $rootScope.student=st;
+        //             return;
+        //         }
+        // });
+           if(kt==true){
+               alert('không thành công!')
+           }
+        });
+        
+        
+        // if(kt=true){
+        //     alert('đăng nhập không thành công!')
+        // }
+
+       
+
+        // console.log($rootScope.List_student);
+       
+        // $scope.dssv.forEach(st => {
+        //     if(st.username==$scope.username&&st.password==$scope.password){
+        //         alert('đăng nhập thành công!')
+        //     }else{
+        //         alert('không thành công!')
+        //     }
+        // });
+
+
+        // console.log($scope.username);
+        // console.log($scope.marks);
+        // $rootScope.students.forEach(st => {
+        //     if (st.username == $scope.username&&st.password == $scope.password) {
+                
+        //             alert('thành công!')
+        //             $rootScope.indexStudent = st.index;
+        //             $rootScope.student = st;
+        //             kt = false;
+        //             window.location.href="#/";
+        //             return;
+                    
+        //     };
+        // });
+        // if (kt == true) {
+        //     alert('không thành công')
+        // }
+    };
+
+});
+        
+      
+    </script>
+  </body>
+</html>

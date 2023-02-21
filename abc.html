@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container mt-3" ng-controller="myCtrl">
+        <div ng-repeat="category in categories">
+            <button ng-click="setCategory(category)">{{ category }}</button>
+        </div>
+        <div ng-repeat="product in products" ng-if="product.category === selectedCategory">
+            {{ product.name }}
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        angular.controller("myCtrl", function ($scope) {
+            $scope.products = [
+                { name: 'Product 1', category: 'Category 1' },
+                { name: 'Product 2', category: 'Category 2' },
+                { name: 'Product 3', category: 'Category 1' },
+                { name: 'Product 4', category: 'Category 3' },
+                { name: 'Product 5', category: 'Category 2' }
+            ];
+            $scope.setCategory = function (category) {
+                $scope.selectedCategory = category;
+            };
+            $scope.categories = ['Category 1', 'Category 2', 'Category 3'];
+        })
+    </script>
+</body>
+
+</html>

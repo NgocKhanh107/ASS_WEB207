@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/popper.js"></script>
+</head>
+<body ng-app = "myApp">
+    <div class="container mt-3" ng-controller = "myCtrl">
+        <div class="col-6 offset-2">
+            <form name="form_category">
+                <div class="row mt-5">
+                    <label class="col-2">CategoryName</label>
+                    <div class="col-10 ms-2 ">
+                    <input type="text" class="form-control mt-2" id="categoryName" ng-model="category.name"> 
+                    </div>
+                </div>
+                <!-- <div class="row mt-3">
+                    <div class="form-check col-6">
+                        <input class="form-check-input ms-5" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            ng-model="category.status" ng-checked="category.status == true" required>
+                        <label class="form-check-label ms-2" for="flexRadioDefault1">
+                            Đang hoạt động
+                        </label>
+                    </div>
+                     <div class="form-check col-6">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked
+                            ng-model="category.status" ng-checked="category.status == false" required>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Ngừng hoạt động
+                        </label>
+                    </div> 
+                </div> -->
+                <div class="row">
+                    <button class="btn btn-success mt-2 col-offset-4" ng-click="save($event)">Add
+                        Category</button>
+                    <button class="btn btn-danger mt-2 col-offset-4 " ng-click="clear($event)">Clear Form</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Name Category</th>
+                        <th>Status</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="category in listCategory">
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ category.name }}</td>
+                        <!-- <td>{{ category.status ? 'Đang Hoạt Động' : 'Ngừng Hoạt Động' }}</td> -->
+                        <td>
+                            <button class="btn btn-primary mt-2" href="#" ng-click="btnUpdateOnClick($event, $index)">
+                                Update
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger mt-2" ng-click="delete($event, $index)" href="#">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("myCtrl", function($scope, $http){
+            const categoryApi = "  http://localhost:3000/categories";
+    $scope.updateIndex = -1;
+    $scope.category = {
+        name: "",
+       
+    };
+    function clear() {
+        $scope.category = {
+            name: "",
+           
+        };
+    }
+
+
+    $scope.btnUpdateOnClick = function (event, index) {
+        event.preventDefault();
+
+        const p = $scope.listCategory[index];
+        $scope.category.name = p.name;
+       
+        $scope.updateIndex = index;
+    }
+
+    $scope.listCategory = [];
+
+    $http.get(categoryApi).then(function (response) {
+        $scope.listCategory = response.data;
+    });
+
+
+    function post() {
+        $http.post(categoryApi, $scope.category)
+            .then(function (response) {
+                $scope.listCategory.push($scope.category);
+                alert("Thành công!");
+                clear();
+            });
+    }
+
+    function put() {
+        $http.put(categoryApi + "/" + $scope.listCategory[$scope.updateIndex].id, $scope.category)
+            .then(function (response) {
+                $scope.listCategory[$scope.updateIndex] = Object.assign({}, $scope.category);
+                alert("Thành công!");
+                clear
+            });
+    }
+
+    $scope.save = function (event) {
+        event.preventDefault();
+
+        if ($scope.updateIndex == -1) {
+            post();
+
+        } else {
+            put();
+
+        }
+    }
+
+    $scope.delete = function (event, index) {
+        event.preventDefault();
+
+        $http.delete(categoryApi + "/" + $scope.listCategory[index].id)
+            .then(function (response) {
+                $scope.listCategory.splice(index, 1);
+                alert("Thành công!");
+            });
+    }
+
+    $scope.clear = function (event) {
+        event.preventDefault();
+        clear();
+    }
+        })
+    </script>
+</body>
+</html>

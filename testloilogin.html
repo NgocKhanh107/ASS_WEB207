@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-app = "myApp">
+    <div class="container mt-3">
+        <form name="loginForm" ng-submit="submitLoginForm()" novalidate>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" ng-model="username" >
+            <div ng-show="loginForm.username.$touched && loginForm.username.$invalid">
+              Please enter a username.
+            </div>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" ng-model="password" ng-minlength="6" ng-pattern="/^[^0-9]*$/" ng-required="true">
+            <div ng-show="loginForm.password.$dirty && loginForm.password.$error.required">
+              Please enter a password.
+            </div>
+            <div ng-show="loginForm.password.$dirty && loginForm.password.$error.minlength">
+              Password must be at least 6 characters.
+            </div>
+            <div ng-show="loginForm.password.$dirty && loginForm.password.$error.pattern">
+              Password must not contain numbers.
+            </div>
+            <br>
+            <button type="submit">Login</button>
+          </form>          
+    </div>
+    <script>
+        const app = angular.module("demo_form", []);
+      app.controller("form_controller", formController);
+
+      function formController($scope) {
+        let sv = {
+          fullname: "hang",
+          password: "123456",
+        };
+        $scope.dangNhap = function () {
+          console.log($scope.fullname);
+          console.log($scope.password);
+
+          if (
+            $scope.fullname == sv.fullname &&
+            $scope.password == sv.password
+          ) {
+            window.open("index.html");
+          } else {
+            alert("Login that bai");
+          }
+        };
+      }
+    </script>
+</body>
+</html>

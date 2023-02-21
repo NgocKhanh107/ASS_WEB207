@@ -1,0 +1,49 @@
+<div class="container mt-5" >
+    <div class="row">
+      <div class="col-md-6 order-md-2">
+        <h3>Đăng ký thành viên mới</h3>
+        <h5>Đăng ký để mua sắm dễ dàng hơn và tận hưởng thêm nhiều đặc biệt</h5>
+        <button class="btn btn-success mt-3 offset-5"  ng-click="regester()">Đăng ký</button>
+      </div>
+      <div class="col-md-6 contents">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="mb-4">
+            <h3>Đăng nhập thành viên</h3>
+            
+          </div>
+          <form  name="frmLogin">
+            <div class="form-floating mb-3 mt-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" name="txtUser" ng-model="username" placeholder=" " required>
+              <span class="text-danger"
+                    ng-show="frmLogin.txtUser.$invalid && frmLogin.txtUser.$touched">
+                    Không được để trống
+                </span>
+            </div>
+            
+            <div class="form-floating mt-3 mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" ng-model="password" name="txtPass" placeholder=" " required>
+              <span class="text-danger"
+              ng-show="frmLogin.txtPass.$error.required && frmLogin.txtPass.$touched">
+              Không được để trống
+          </span>
+            </div>
+            
+            <div class="d-flex mb-5 align-items-center">
+              <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
+            </div>
+
+            <div class="text-center mt-2">
+              <button class="btn btn-warning btn-rounded " ng-disabled="frmLogin.$invalid" ng-click="login()">Đăng nhập</button>
+          </div>
+
+          </form>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>

@@ -1,0 +1,63 @@
+<div class="container bg-light">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="1000">
+            <img class="d-block w-100 img-carousel" src="images/banner-01.jpg">
+          </div>
+          <div class="carousel-item" data-bs-interval="1000">
+            <img class="d-block w-100 img-carousel" src="images/banner-02.jpg">
+          </div>
+          <div class="carousel-item" data-bs-interval="1000">
+            <img class="d-block w-100 img-carousel" src="images/banner-03.jpg">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!--Sản phẩm bán chạy-->
+    <h4 class="text-center mt-4">Sản phẩm bán chạy nhất</h4>
+    <div class="row mt-3">
+        <div class="col-md-3 col-12" ng-repeat = " p in products " >
+            <div class="products-single">
+                <div class="box-img-hover">
+                    <img src="images/{{p.image}}" class="img-fluid" alt="Image">
+                   
+                </div>
+                <div class="text-center mt-4">
+                    <h6>{{p.name}}</h6>
+                    <h5>${{p.price}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--End sản phẩm bán chạy-->
+<h4 class="text-center mt-4">Sản phẩm bán chạy nhất</h4>
+<div class="row mt-3">
+    <div class="col-md-3 col-12" ng-repeat = " p in products " >
+        <div class="products-single">
+            <div class="box-img-hover">
+                <img src="images/{{p.image}}" class="img-fluid" alt="Image">
+            </div>
+            <div class="text-center mt-4">
+                <h6>{{p.name}}</h6>
+                <h5>${{p.price}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--sản phẩm mới nhất-->
+<!--end sản phẩm mới nhất-->
+</div>

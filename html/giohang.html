@@ -1,0 +1,53 @@
+<div class=" container mt-4" >
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                <div class="carousel-inner " role="listbox" >
+                    <div class="carousel-item active"> <img class="d-block w-100" src="images/{{image}}" alt="First slide"> </div>   
+                </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-example-1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carousel-example-1" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+                <!-- <ol class="image mt-4">
+                    <li data-target="#carousel-example-1" data-slide-to="0" class="active">
+                        <img class="d-block w-100 img-fluid" src="images/smp-img-01.jpg" alt="" />
+                    </li>
+                    <li data-target="#carousel-example-1" data-slide-to="1">
+                        <img class="d-block w-100 img-fluid" src="images/smp-img-02.jpg" alt="" />
+                    </li>
+                    <li data-target="#carousel-example-1" data-slide-to="2">
+                        <img class="d-block w-100 img-fluid" src="images/smp-img-03.jpg" alt="" />
+                    </li>
+                </ol> -->
+            </div>
+        </div>
+        <div class="col-md-6 col-12"  >
+           
+            <div class="product-details">
+                <h2 class="product-name">product name goes here</h2>
+                <div>
+                    <h4>Giá</h4>
+                    <h3 class="product-price text-danger">${{gia}} </h3>
+                    
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                
+                <div class="add-to-cart">
+                    <button class="btn btn-success" id="minus">−</button>
+                    <input type="number" value="0" id="input" ng-model = "sl" min="0" style="width: 50px"/>
+                    <button class="btn-success" id="plus">+</button>
+                    
+                </div>
+                <button type="button" class="btn btn-success mt-3" ng-click="them($event,sl)"><i class="bi bi-cart"></i>
+                    Thêm vào giỏ
+                </button>           
+            </div>
+        </div>
+    </div>
+</div>

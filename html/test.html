@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angularjs.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/lap1.css"/>
+	<link type="text/css" rel="stylesheet" href="testsp.css"/>
+</head>
+<body ng-app = "spapp">
+    <!--Header-->
+    <div class="container mt-4">
+   
+    <!--san pham-->
+    
+		<!--thể loại-->
+            <div class="row">
+                <div class="col-lg-12">
+                        <div class=" text-center">
+                            <a class=" active text-dark" href="#/sanpham/">All</a>
+                            <div class="button-group filter-button-group">
+                                <button type="button" class="btn active" data-filter="*">All</button>
+                                <button type="button" class="btn" data-filter=".top-featured" ng-click="selectTopProduct()">Top featured</button>
+                                <button type="button" class="btn" data-filter=".best-seller"ng-click="selectBestProduct()">Best seller</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+			<!--end thể loại-->
+
+		<!--Danh sách sản phẩm-->	
+        <!-- <div class="listSP mt-4">
+			<div class="row ">
+                <div class="col-md-3 col-12" ng-repeat = " p in listProduct">
+                    <div class="products-single">
+                        <div class="box-img-hover">
+                            <img src="images/{{p.imagers}}" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <a class="cart" href="giohang.html">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <h6>{{p.name}}</h6>
+                            <h5>${{p.price}}</h5>
+                        </div>
+                    </div>
+                </div>
+
+		</div>        
+         <!--End danh sách sản phẩm-->   
+    
+    <!--End san pham-->
+	<!--footer-->
+	
+	
+</div>
+  
+	<!--end footer-->
+
+</body>
+</html>

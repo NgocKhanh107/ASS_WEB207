@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="test.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/testsp.css" />
+	<link type="text/css" rel="stylesheet" href="css/testGiohang.css" />
+	<link type="text/css" rel="stylesheet" href="css/lap1.css" />
+	<script src="javascript/myapp.js"></script>
+	<script src="javascript/home.js"></script>
+	<script src="javascript/sanpham.js"></script>
+	<script src="javascript/CategoryController.js"></script>
+	<script src="javascript/ProductController.js"></script>
+	<script src="javascript/giohang.js"></script>
+	<script src="javascript/muahang.js"></script>
+	<script src="javascript/hoadon.js"></script>
+	<script src="javascript/login.js"></script>
+	<script src="javascript/loginCtrl.js"></script>
+	<script src="javascript/dangky.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script type="text/javascript" src="https://bit.ly/googleTranslateElementInit2"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+</head>
+
+<body ng-app="myApp">
+	<!--Header-->
+	<div class="container">
+		<header>
+			<!-- container -->
+			<div class=" mt-4 bg-light">
+				<!-- row -->
+				<div class="row">
+					<!-- LOGO -->
+					<img class="col-md-3" src="images/logoinis.png" alt="">
+					<!-- /LOGO -->
+
+					<!-- SEARCH BAR -->
+					<div class="col-md-5 mt-4">
+						<div class="col-md-6  input-group mb-3">
+							<input class="form-control me-2 rounded-pill" type="search" placeholder="Search"
+								aria-label="Search">
+							<button class="btn btn-success" type="button">
+								<i class="bi bi-search"></i>
+							</button>
+						</div>
+					</div>
+					<!-- /SEARCH BAR -->
+
+					<!-- ACCOUNT -->
+					<div class="col-md-4  ">
+						<!-- đăng nhập -->
+						<button type="button" class="btn btn-link mt-4 text-dark">Đăng nhập</button>
+						<!-- /đăng nhập -->
+						<button type="button" class="btn btn-link position-relative mt-4">
+							<a href="#muahang" class="text-dark"><i class="bi bi-cart-dash"></i></a>
+							<span
+								class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+								{{total}}
+							</span>
+						</button>
+					</div>
+					<!-- /ACCOUNT -->
+				</div>
+				<!-- row -->
+				<!-- container -->
+				<nav id="navigation" class="navbar navbar-expand-lg bg-light">
+					<!-- container -->
+					<div class="container-fluid">
+						<!-- responsive-nav -->
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+							data-bs-target="#responsive-nav" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div id="responsive-nav" class="collapse navbar-collapse">
+							<!-- NAV -->
+							<ul class="main-nav navbar-nav me-auto mb-2 mb-lg-0 ">
+								<li class="nav-item">
+									<a class="nav-link active text-dark" aria-current="page" href="#/">Trang chủ</a>
+								</li>
+								<li><a class="nav-link text-dark" href="#sanpham">Sản phẩm</a></li>
+								<li><a class="nav-link text-dark" href="#gioithieu">Giới thiệu cửa hàng</a></li>
+								<li><a class="nav-link text-dark" href="#sukien">Sự kiện</a></li>
+
+							</ul>
+							<ul class="d-flex navbar-nav me-auto mb-2 mb-lg-0 ">		
+								<!--Tài khoản-->						
+								<li class="nav-item dropdown text-dark">
+									<a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										{{(student==null)?'Tài khoản':student.fullname}}
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<div ng-show="student==null">
+											<li><a class="dropdown-item" href="#dangky">Đăng ký</a></li>
+											<li><a class="dropdown-item" href="#login">Đăng nhập</a></li>
+											<li><a class="dropdown-item" href="#">Quên mật khẩu</a></li>
+
+										</div>
+										<div ng-show="student.admin== 'true'">
+											<a class="dropdown-item" href="#product">Quản lý sản phẩm</a>
+											<a class="dropdown-item" href="#category">Quản lý loại sản phẩm</a>
+											<li><a class="dropdown-item" href="#hoadon">Đơn mua</a></li>
+										</div>
+
+									</ul>
+								</li>
+								<!--End tài khoản-->	
+
+								<!--ngôn ngữ-->
+								<li class="nav-item dropdown text-dark">
+									<a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Ngôn ngữ
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li>
+											<a href="javascript:void(0);" onclick="doGTranslate('vi|vi');return false;">
+												<img src="images/vi.png"> Tiếng Việt
+											</a>
+										</li>
+										<li>
+											<a href="javascript:void(0);" onclick="doGTranslate('vi|en');return false;">
+												<img src="images/en.png"> Tiếng Anh
+											</a>
+										</li>
+										<div id="google_translate_element2"></div>
+									</ul>
+								</li>
+								<!-- End ngôn ngữ-->
+							</ul>
+							<!-- /NAV -->
+						</div>
+						<!-- /responsive-nav -->
+					</div>
+					<!-- /container -->
+				</nav>
+			</div>
+		</header>
+		<div class="body">
+			<div ng-view></div>
+		</div>
+		<footer class="bg-dark">
+			<div class="row mt-2 ms-5">
+				<div class="col-md-3">
+					<img src="images/logoinis.png" alt="" class="col-md-10">
+					<div class="footer-widget ">
+						<ul>
+							<li><a href="#"><i class="bi bi-facebook"></i></a></li>
+							<li><a href="#"><i class="bi bi-youtube"></i></a></li>
+							<li><a href="#"><i class="bi bi-tiktok"></i></a></li>
+							<li><a href="#"><i class="bi bi-wikipedia"></i></a></li>
+						</ul>
+
+					</div>
+				</div>
+				<div class="col-md-6"></div>
+				<div class="col-md-3 ">
+					<p class="text-light ml-0 mt-4">ⓒ 2020 innisfree Inc. <br>All rights reserved.</p>
+				</div>
+			</div>
+			<div class="row mt-2 ms-5 mb-5">
+				<a class="col-4 text-light" href="#">Chính sách bảo hành</a>
+				<a class="col-4 text-light" href="#">Chính sách bảo mật</a>
+				<a class="col-4 text-light" href="#">Chính sách mua hàng</a>
+			</div>
+			
+		</footer>
+	</div>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script>
+		function googleTranslateElementInit2() {
+			new google.translate.TranslateElement(
+				{ pageLanguage: "vi", autoDisplay: !1 },
+				"google_translate_element2"
+			);
+		}
+		function GTranslateFireEvent(e, t) {
+			try {
+				if (document.createEvent) {
+					var n = document.createEvent("HTMLEvents");
+					n.initEvent(t, !0, !0), e.dispatchEvent(n);
+				} else {
+					var n = document.createEventObject();
+					e.fireEvent("on" + t, n);
+				}
+			} catch (a) { }
+		}
+		function doGTranslate(e) {
+			if ((e.value && (e = e.value), "" != e)) {
+				for (
+					var t,
+					n = e.split("|")[1],
+					a = document.getElementsByTagName("select"),
+					l = 0;
+					l < a.length;
+					l++
+				)
+					"goog-te-combo" == a[l].className && (t = a[l]);
+				null == document.getElementById("google_translate_element2") ||
+					0 ==
+					document.getElementById("google_translate_element2").innerHTML.length ||
+					0 == t.length ||
+					0 == t.innerHTML.length
+					? setTimeout(function () {
+						doGTranslate(e);
+					}, 500)
+					: ((t.value = n),
+						GTranslateFireEvent(t, "change"),
+						GTranslateFireEvent(t, "change"));
+			}
+		}
+
+
+	</script>
+</body>
+
+</html>

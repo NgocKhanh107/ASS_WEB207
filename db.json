@@ -1,0 +1,151 @@
+{
+  "categories": [
+    {
+      "name": "Hoa quả",
+      "id": 1
+    },
+    {
+      "name": "Rau",
+      "id": 2
+    },
+    {
+      "name": "Sửa",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Táo",
+      "price": 10000,
+      "status": true,
+      "categoryID": 1,
+      "image": "product-8.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Nho",
+      "price": 15000,
+      "status": true,
+      "categoryID": 1,
+      "image": "product-9.jpg"
+    },
+    {
+      "name": "ổi",
+      "price": 5000,
+      "status": true,
+      "categoryID": 3,
+      "image": "product-3.jpg",
+      "id": 3
+    },
+    {
+      "name": "Sữa nho",
+      "price": 10000,
+      "status": true,
+      "categoryID": 1,
+      "image": "product-3.jpg",
+      "id": 4
+    },
+    {
+      "name": "Sữa cam",
+      "price": 15000,
+      "status": true,
+      "categoryID": 3,
+      "image": "product-11.jpg",
+      "id": 5
+    },
+    {
+      "name": "Sữa táo",
+      "price": 1000,
+      "status": true,
+      "categoryID": 3,
+      "image": "cat-4.jpg",
+      "id": 6
+    },
+    {
+      "name": "rau cải",
+      "price": 5000,
+      "status": true,
+      "categoryID": 2,
+      "image": "raucai.jpg",
+      "id": 7
+    },
+    {
+      "name": "ớt",
+      "price": 5000,
+      "status": true,
+      "categoryID": 1,
+      "image": "",
+      "id": 8
+    }
+  ],
+  "test": [
+    {
+      "id": 5,
+      "name": "quan 2",
+      "price": 3000,
+      "image": "product-5.jpg"
+    },
+    {
+      "name": "iphone",
+      "price": 2,
+      "image": "hoanghon.jpg",
+      "id": 6
+    }
+  ],
+  "giohang": [
+    {
+      "name": "Ao 2",
+      "sl": 4,
+      "gia": 3000,
+      "image": "product-2.jpg",
+      "id": 1
+    },
+    {
+      "name": "Ao 3",
+      "sl": 5,
+      "gia": 3000,
+      "image": "product-3.jpg",
+      "id": 2
+    },
+    {
+      "name": "Ao 1",
+      "sl": 4,
+      "gia": 3000,
+      "image": "product-1.jpg",
+      "id": 3
+    },
+    {
+      "name": "Sữa cam",
+      "sl": 4,
+      "gia": 15000,
+      "image": "product-11.jpg",
+      "id": 4
+    }
+  ],
+  "students": [
+    {
+      "username": "khanhph27550",
+      "password": "123",
+      "fullname": "Đỗ Ngọc Khánh",
+      "email": "khanhph27550@fpt.edu.vn",
+      "gender": "true",
+      "birthday": "1995-12-21",
+      "admin": "true",
+      "id": 1
+    },
+    {
+      "username": "khanh107",
+      "password": "123",
+      "fullname": "khanhs",
+      "email": "ngockhanh107a@gmail.com",
+      "gender": "true",
+      "birthday": "2002-07-10",
+      "admin": "true",
+      "id": 2
+    }
+  ],
+  "hoadon": [
+    
+  ]
+}
